@@ -3,6 +3,7 @@
 blueprint is a performance optimised theme for Roam Research incorporating a bunch of UI/UX enhancements. It is based on [blueprint.js](https://blueprintjs.com), the React-based UI toolkit for building complex data-dense interfaces.
 
 ![](https://github.com/rcvd/blueprint/raw/main/screenshots/light.png)
+
 ![](https://github.com/rcvd/blueprint/raw/main/screenshots/dark.png)
 
 ## Disclaimer
