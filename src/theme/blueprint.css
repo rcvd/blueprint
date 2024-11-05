@@ -3602,6 +3602,31 @@ div.hoverparent[style*="width: 580px;"] div.react-resizable {
     box-shadow: none;
   }
 }
+.bp3-button-group.bp3-minimal .bp3-button {
+  background-color: initial;
+  background-image: initial;
+  box-shadow: none;
+}
+
+.bp3-light .bp3-button-group.bp3-minimal .bp3-button {
+  background-color: initial;
+  background-image: initial;
+  box-shadow: none;
+}
+
+.bp3-dark .bp3-button-group.bp3-minimal .bp3-button {
+  background-color: initial;
+  background-image: initial;
+  box-shadow: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bp3-button-group.bp3-minimal .bp3-button {
+    background-color: initial;
+    background-image: initial;
+    box-shadow: none;
+  }
+}
 .bp3-button.bp3-outlined:active, .bp3-button.bp3-outlined.bp3-active, .bp3-button.bp3-outlined:active:hover, .bp3-button.bp3-outlined.bp3-active:hover {
   background-color: rgba(115, 134, 148, 0.3);
   box-shadow: none;
@@ -13052,4 +13077,4 @@ code {
   }
 }
 
-/*# sourceMappingURL=roam.css.map */
+/*# sourceMappingURL=blueprint.css.map */
