@@ -73,10 +73,6 @@
   line-height: 23px;
 }
 
-.rm-bullet--numbered {
-  align-self: center;
-}
-
 .rm-E:hover .rm-block__controls {
   display: flex;
 }
@@ -164,6 +160,24 @@ table.bp3-html-table tfoot tr:first-child td {
 
 .rm-block__self:hover > .controls > .block-expand > .rm-caret-showing {
   opacity: 1;
+}
+
+.rm-bullet--numbered {
+  align-self: center;
+}
+
+.rm-bullet--numbered .rm-bullet__inner--numbered {
+  display: inline-block !important;
+}
+
+.rm-bullet--numbered-double-digit .rm-bullet__inner--numbered {
+  display: inline-block !important;
+  margin-right: 20px;
+}
+
+.rm-bullet--numbered-triple-digit .rm-bullet__inner--numbered {
+  display: inline-block !important;
+  margin-right: 80px;
 }
 
 /* Fix the date picker day size */
@@ -464,14 +478,16 @@ em-emoji-picker {
   }
 }
 .bp3-dark #rm-canvas-container {
-  background-color: var(--cl-gray-900);
-  --graph-overview-label-color: var(--co-graph__label);
-  --graph-overview-default-node-color: var(--co-graph__default-node);
-  --graph-overview-unselected-node-color: var(--co-graph__unselected-node);
-  --graph-overview-explore-node-color: var(--co-graph__explore-node);
-  --graph-overview-default-edge-color: var(--co-graph__default-edge);
-  --graph-overview-selected-edge-color: var(--co-graph__selected-edge);
-  --graph-overview-unselected-edge-color: var(--co-graph__unselected-edge);
+  background-color: #202b33;
+  --graph-overview-label-color: #202b33;
+  --graph-overview-default-node-color: #738694;
+  --graph-overview-selected-node-color: #48aff0;
+  --graph-overview-selected-neighbors-node-color: #137cbd;
+  --graph-overview-unselected-node-color: #394b59;
+  --graph-overview-explore-node-color: #48aff0;
+  --graph-overview-default-edge-color: #5c7080;
+  --graph-overview-selected-edge-color: #2b95d6;
+  --graph-overview-unselected-edge-color: #394b59;
 }
 
 .bp3-dark #rm-canvas-container .sigma-labels {
@@ -797,6 +813,38 @@ code {
     filter: invert(1) hue-rotate(180deg) brightness(3);
   }
 }
+.speech-ui-row1,
+.speech-ui-row1 .log-button {
+  flex-direction: row-reverse;
+}
+
+.roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .icon.speech-record-button {
+  display: block !important;
+  padding-left: 8px;
+}
+
+.speech-to-roam-container-left:has(.digits) > .speech-ui-row1 > .log-button,
+.left-timer-wrapper {
+  margin-left: 8px !important;
+}
+
+.timer {
+  padding-right: 8px;
+  margin-left: 8px;
+}
+
+.speech-to-roam-container-left > .speech-ui-row1 > .log-button > span:last-child {
+  margin-right: 0;
+}
+
+.speech-to-roam-container-left > .speech-ui-row1 > .log-button {
+  padding: 0 !important;
+}
+
+.speech-to-roam-container-left > .speech-ui-row1 > .log-button:not(:has(.digits)) > span:last-child {
+  margin-left: 0;
+}
+
 .roamjs-smartblock-menu .bp3-menu-item img {
   margin-bottom: 2px;
 }
@@ -1690,10 +1738,14 @@ div.hoverparent[style*="width: 580px;"] div.react-resizable {
   max-width: 600px;
 }
 
-.rm-topbar:has(#find-or-create-input:focus) .bp3-button,
+.rm-topbar:has(#find-or-create-input:focus) .bp3-popover-wrapper:not(.bp3-input-action) .bp3-button,
 .rm-topbar:has(#find-or-create-input:focus) .rm-sync {
   transition: none;
   display: none;
+}
+
+.rm-topbar:has(#find-or-create-input:focus) .bp3-popover-wrapper.bp3-input-action .bp3-button {
+  display: block;
 }
 
 .rm-find-or-create-wrapper .bp3-menu {
