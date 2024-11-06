@@ -10462,13 +10462,13 @@ code {
   }
 }
 .rm-highlight {
-  background-color: #ffc940;
-  color: #f5f8fa;
+  background-color: rgba(255, 201, 64, 0.5);
+  color: #182026;
 }
 
 .bp3-light .rm-highlight {
-  background-color: #ffc940;
-  color: #f5f8fa;
+  background-color: rgba(255, 201, 64, 0.5);
+  color: #182026;
 }
 
 .bp3-dark .rm-highlight {
