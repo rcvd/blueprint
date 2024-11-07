@@ -5952,24 +5952,24 @@ div.hoverparent[style*="width: 580px;"] div.react-resizable {
   }
 }
 .bp3-tooltip .bp3-popover-content {
-  background-color: #30404d;
-  color: #f5f8fa;
+  background-color: #30404d !important;
+  color: #f5f8fa !important;
 }
 
 .bp3-light .bp3-tooltip .bp3-popover-content {
-  background-color: #30404d;
-  color: #f5f8fa;
+  background-color: #30404d !important;
+  color: #f5f8fa !important;
 }
 
 .bp3-dark .bp3-tooltip .bp3-popover-content {
-  background-color: #e1e8ed;
-  color: #30404d;
+  background-color: #e1e8ed !important;
+  color: #30404d !important;
 }
 
 @media (prefers-color-scheme: dark) {
   .bp3-tooltip .bp3-popover-content {
-    background-color: #e1e8ed;
-    color: #30404d;
+    background-color: #e1e8ed !important;
+    color: #30404d !important;
   }
 }
 .bp3-tooltip .bp3-popover-arrow::before {
