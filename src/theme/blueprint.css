@@ -852,6 +852,10 @@ code {
   padding: 0 !important;
 }
 
+.speech-to-roam-container-left > .speech-ui-row1:has(.fa-microphone-slash) {
+  margin-left: 0;
+}
+
 .speech-to-roam-container-left > .speech-ui-row1 > .log-button:not(:has(.digits)) > span:last-child {
   margin-left: 0;
 }
