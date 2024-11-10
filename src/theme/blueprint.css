@@ -1790,8 +1790,8 @@ div:has(> .rm-pomodoro) {
 
 /* @import "modules/bullet-effects"; */
 /* @import "modules/centered-search"; */
-.rm-block div:has(> span > span > span > span > span > span > label > input:checked),
-.rm-block div:has(> span > span > label > input:checked) {
+.rm-block div:has(> span > span > span > span > span > span > label:not(.rm-multiselect-checkbox) > input:checked),
+.rm-block div:has(> span > span > label:not(.rm-multiselect-checkbox) > input:checked) {
   color: #8a9ba8 !important;
   text-decoration: line-through;
 }
