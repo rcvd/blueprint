@@ -235,29 +235,29 @@ table.bp3-html-table tfoot tr:first-child td {
 .bp3-light .rm-diagram,
 .rm-diagram {
   background-color: #f5f8fa !important;
-  --group-area-fill-color: rgba($light-gray3, 0.2);
-  --block-fill-color: $white;
-  --block-text-color: $black;
-  --block-border-color: $gray4;
+  --group-area-fill-color: rgba(#e1e8ed, 0.2);
+  --block-fill-color: #ffffff;
+  --block-text-color: #10161a;
+  --block-border-color: #a7b6c2;
   --block-text-align: start;
-  --group-title-text-color: $black;
-  --group-border-color: $gray4;
+  --group-title-text-color: #10161a;
+  --group-border-color: #a7b6c2;
   --group-title-font-size: 18px;
-  --global-edge-stroke-color: $black;
+  --global-edge-stroke-color: #10161a;
 }
 
 @media (prefers-color-scheme: dark) {
   html:not(.bp3-light) .rm-diagram {
     background-color: #202b33 !important;
-    --group-area-fill-color: rgba($light-gray3, 0.2);
-    --block-fill-color: $white;
-    --block-text-color: $black;
-    --block-border-color: $gray4;
+    --group-area-fill-color: rgba(#e1e8ed, 0.2);
+    --block-fill-color: #ffffff;
+    --block-text-color: #10161a;
+    --block-border-color: #a7b6c2;
     --block-text-align: start;
     --group-title-text-color: black;
-    --group-border-color: $gray4;
+    --group-border-color: #a7b6c2;
     --group-title-font-size: 18px;
-    --global-edge-stroke-color: $black;
+    --global-edge-stroke-color: #10161a;
   }
   /* Invert diagram colors in dark mode */
   html:not(.bp3-light) .rm-diagram-minimap,
@@ -281,22 +281,22 @@ table.bp3-html-table tfoot tr:first-child td {
 }
 .bp3-dark .rm-diagram {
   background-color: #202b33 !important;
-  --group-area-fill-color: rgba($light-gray3, 0.2);
-  --block-fill-color: $white;
-  --block-text-color: $black;
-  --block-border-color: $gray4;
+  --group-area-fill-color: rgba(#e1e8ed, 0.2);
+  --block-fill-color: #ffffff;
+  --block-text-color: #10161a;
+  --block-border-color: #a7b6c2;
   --block-text-align: start;
   --group-title-text-color: black;
-  --group-border-color: $gray4;
+  --group-border-color: #a7b6c2;
   --group-title-font-size: 18px;
-  --global-edge-stroke-color: $black;
+  --global-edge-stroke-color: #10161a;
 }
 .bp3-dark .rm-diagram-minimap,
 .bp3-dark .rm-diagram .react-flow__node,
 .bp3-dark .rm-diagram .react-flow__edge {
   filter: invert(1) hue-rotate(-180deg);
 }
-.bp3-dark .rm-diagram .rm-parsed-block-string > span > * {
+.bp3-dark .rm-diagram .rm-parsed-block-string > span > *:not(.rm-bold) {
   filter: invert(1) hue-rotate(180deg);
 }
 .bp3-dark .rm-diagram .rm-diagram-properties-panel__color-picker .bp3-popover-wrapper,
