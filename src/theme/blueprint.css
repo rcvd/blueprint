@@ -210,6 +210,7 @@ table.bp3-html-table tfoot tr:first-child td {
   display: none;
 }
 
+/* stylelint-disable @blueprintjs/no-color-literal */
 .react-flow__controls-button {
   margin: 4px;
 }
@@ -813,6 +814,10 @@ code {
     filter: invert(1) hue-rotate(180deg) brightness(3);
   }
 }
+.speech-to-roam {
+  justify-content: space-between;
+}
+
 .speech-ui-row1,
 .speech-ui-row1 .log-button {
   flex-direction: row-reverse;
@@ -820,17 +825,15 @@ code {
 
 .roam-body .roam-app .roam-sidebar-container .roam-sidebar-content .icon.speech-record-button {
   display: block !important;
-  padding-left: 8px;
-}
-
-.speech-to-roam-container-left:has(.digits) > .speech-ui-row1 > .log-button,
-.left-timer-wrapper {
-  margin-left: 8px !important;
+  min-width: 24px !important;
+  text-align: center;
+  margin-left: 0;
+  padding-right: 0;
 }
 
 .timer {
   padding-right: 8px;
-  margin-left: 8px;
+  margin-left: 0px;
 }
 
 .speech-to-roam-container-left > .speech-ui-row1 > .log-button > span:last-child {
@@ -843,6 +846,11 @@ code {
 
 .speech-to-roam-container-left > .speech-ui-row1 > .log-button:not(:has(.digits)) > span:last-child {
   margin-left: 0;
+}
+
+.speech-ui-row2 .bp3-button {
+  padding: 0;
+  margin: 0 2px;
 }
 
 .roamjs-smartblock-menu .bp3-menu-item img {
@@ -1117,6 +1125,10 @@ div:has(> .rm-pomodoro) {
 
 .rm-reference-item {
   padding: 8px;
+}
+
+.rm-reference-wrapper .rm-reference-main.rm-query-content {
+  margin: 8px 8px 4px 8px;
 }
 
 /* Hide the window header caret by default */
@@ -6021,6 +6033,27 @@ div.hoverparent[style*="width: 580px;"] div.react-resizable {
 @media (prefers-color-scheme: dark) {
   .bp3-tooltip .bp3-popover-arrow-fill {
     fill: #e1e8ed;
+  }
+}
+.bp3-tooltip .bp3-popover-content code {
+  background-color: rgba(16, 22, 26, 0.3);
+  color: #f5f8fa;
+}
+
+.bp3-light .bp3-tooltip .bp3-popover-content code {
+  background-color: rgba(16, 22, 26, 0.3);
+  color: #f5f8fa;
+}
+
+.bp3-dark .bp3-tooltip .bp3-popover-content code {
+  background-color: hsla(0, 0%, 100%, 0.7);
+  color: #30404d;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bp3-tooltip .bp3-popover-content code {
+    background-color: hsla(0, 0%, 100%, 0.7);
+    color: #30404d;
   }
 }
 .bp3-tooltip .bp3-heading {
