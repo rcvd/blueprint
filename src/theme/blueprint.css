@@ -113,6 +113,10 @@ table.bp3-html-table tfoot tr:first-child td {
   box-shadow: none;
 }
 
+.bp3-menu-item-label {
+  line-height: 23px;
+}
+
 /* Remove the background color of the command palette */
 .rm-command-palette__scroll-container .rm-command-palette__menu {
   background-color: transparent;
