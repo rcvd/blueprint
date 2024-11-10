@@ -818,6 +818,10 @@ code {
     filter: invert(1) hue-rotate(180deg) brightness(3);
   }
 }
+.unlink-finder-legend {
+  border: none !important;
+}
+
 .speech-to-roam {
   justify-content: space-between;
 }
@@ -2484,6 +2488,91 @@ div.hoverparent[style*="width: 580px;"] div.react-resizable {
 @media (prefers-color-scheme: dark) {
   .rm-autocomplete__results {
     background-color: #293742;
+  }
+}
+.unlink-finder.alias-word-match {
+  background-color: rgba(18.819, 124.5539, 190.281, 0.3) !important;
+}
+
+.bp3-light .unlink-finder.alias-word-match {
+  background-color: rgba(18.819, 124.5539, 190.281, 0.3) !important;
+}
+
+.bp3-dark .unlink-finder.alias-word-match {
+  background-color: rgba(72, 175, 240, 0.5) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .unlink-finder.alias-word-match {
+    background-color: rgba(72, 175, 240, 0.5) !important;
+  }
+}
+.unlink-finder.exact-word-match {
+  background-color: rgba(15.147, 153.153, 95.6505, 0.3) !important;
+}
+
+.bp3-light .unlink-finder.exact-word-match {
+  background-color: rgba(15.147, 153.153, 95.6505, 0.3) !important;
+}
+
+.bp3-dark .unlink-finder.exact-word-match {
+  background-color: rgba(61, 204, 145, 0.5) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .unlink-finder.exact-word-match {
+    background-color: rgba(61, 204, 145, 0.5) !important;
+  }
+}
+.unlink-finder.partial-word-match {
+  background-color: rgba(138, 155, 168, 0.3) !important;
+}
+
+.bp3-light .unlink-finder.partial-word-match {
+  background-color: rgba(138, 155, 168, 0.3) !important;
+}
+
+.bp3-dark .unlink-finder.partial-word-match {
+  background-color: rgba(191, 204, 214, 0.5) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .unlink-finder.partial-word-match {
+    background-color: rgba(191, 204, 214, 0.5) !important;
+  }
+}
+.unlink-finder.fuzzy-word-match {
+  background-color: rgba(217.515, 130.05, 42.585, 0.3) !important;
+}
+
+.bp3-light .unlink-finder.fuzzy-word-match {
+  background-color: rgba(217.515, 130.05, 42.585, 0.3) !important;
+}
+
+.bp3-dark .unlink-finder.fuzzy-word-match {
+  background-color: rgba(255, 179, 102, 0.5) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .unlink-finder.fuzzy-word-match {
+    background-color: rgba(255, 179, 102, 0.5) !important;
+  }
+}
+.unlink-finder.redundant-word-match {
+  background-color: rgba(218.637, 56.763, 56.763, 0.3) !important;
+}
+
+.bp3-light .unlink-finder.redundant-word-match {
+  background-color: rgba(218.637, 56.763, 56.763, 0.3) !important;
+}
+
+.bp3-dark .unlink-finder.redundant-word-match {
+  background-color: rgba(255, 115, 115, 0.5) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .unlink-finder.redundant-word-match {
+    background-color: rgba(255, 115, 115, 0.5) !important;
   }
 }
 .block-highlight-blue {
