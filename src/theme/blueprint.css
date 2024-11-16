@@ -13228,19 +13228,23 @@ code {
 }
 .rm-hotkeys-settings .rm-hotkeys-group .rm-hotkeys-action .rm-hotkeys-hotkey__part {
   background-color: #5c7080;
+  color: rgb(245, 248, 250);
 }
 
 .bp3-light .rm-hotkeys-settings .rm-hotkeys-group .rm-hotkeys-action .rm-hotkeys-hotkey__part {
   background-color: #5c7080;
+  color: rgb(245, 248, 250);
 }
 
 .bp3-dark .rm-hotkeys-settings .rm-hotkeys-group .rm-hotkeys-action .rm-hotkeys-hotkey__part {
   background-color: #bfccd6;
+  color: #182026;
 }
 
 @media (prefers-color-scheme: dark) {
   .rm-hotkeys-settings .rm-hotkeys-group .rm-hotkeys-action .rm-hotkeys-hotkey__part {
     background-color: #bfccd6;
+    color: #182026;
   }
 }
 .rm-hotkeys-settings .rm-hotkeys-group__hr {
