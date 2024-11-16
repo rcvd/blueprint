@@ -7401,19 +7401,35 @@ div.hoverparent[style*="width: 580px;"] div.react-resizable {
 }
 .block-highlight-blue .rm-bullet__inner {
   background-color: #182026;
+  border-top: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid transparent;
 }
 
 .bp3-light .block-highlight-blue .rm-bullet__inner {
   background-color: #182026;
+  border-top: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid transparent;
 }
 
 .bp3-dark .block-highlight-blue .rm-bullet__inner {
   background-color: #ffffff;
+  border-top: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid transparent;
 }
 
 @media (prefers-color-scheme: dark) {
   .block-highlight-blue .rm-bullet__inner {
     background-color: #ffffff;
+    border-top: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid transparent;
   }
 }
 .block-highlight-blue .rm-multibar {
