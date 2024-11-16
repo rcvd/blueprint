@@ -1758,12 +1758,24 @@ div:has(> .rm-pomodoro) {
 
 /* @import "modules/bullet-effects"; */
 /* @import "modules/centered-search"; */
-.rm-block div:has(> span > span > span > span > span > span > label:not(.rm-multiselect-checkbox) > input:checked),
-.rm-block div:has(> span > span > label:not(.rm-multiselect-checkbox) > input:checked) {
+/*
+.rm-block div:has(>span>span>span>span>span>span>label:not(.rm-multiselect-checkbox)>input:checked),
+.rm-block div:has(>span>span>label:not(.rm-multiselect-checkbox)>input:checked) {
+  color: $gray3!important;
+  text-decoration: line-through;
+}
+*/
+.roam-block > span:has(label.check-container > input:checked) {
   color: #8a9ba8 !important;
   text-decoration: line-through;
 }
 
+/* -- Fix for the new Roam update changing the way todos are implemeneted
+.roam-block > span:has(.rm-done) {
+  color: $gray3!important;
+  text-decoration: line-through;
+}
+ */
 /*
 Images in the right sidebar will be scaled dynamically to fit the width of the bar.
 
@@ -12257,6 +12269,40 @@ code {
 @media (prefers-color-scheme: dark) {
   .bp3-menu .bp3-menu-divider ~ .flex-h-box .bp3-icon-standard[style="color: rgb(92, 112, 128);"] {
     color: #a7b6c2 !important;
+  }
+}
+#rm-mobile-bar .rm-mobile-button .bp3-icon, #rm-mobile-bar .rm-mobile-button i {
+  color: #182026 !important;
+}
+
+.bp3-light #rm-mobile-bar .rm-mobile-button .bp3-icon, .bp3-light #rm-mobile-bar .rm-mobile-button i {
+  color: #182026 !important;
+}
+
+.bp3-dark #rm-mobile-bar .rm-mobile-button .bp3-icon, .bp3-dark #rm-mobile-bar .rm-mobile-button i {
+  color: rgb(245, 248, 250) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  #rm-mobile-bar .rm-mobile-button .bp3-icon, #rm-mobile-bar .rm-mobile-button i {
+    color: rgb(245, 248, 250) !important;
+  }
+}
+#rm-mobile-bar {
+  background-color: #ffffff;
+}
+
+.bp3-light #rm-mobile-bar {
+  background-color: #ffffff;
+}
+
+.bp3-dark #rm-mobile-bar {
+  background-color: #10161a;
+}
+
+@media (prefers-color-scheme: dark) {
+  #rm-mobile-bar {
+    background-color: #10161a;
   }
 }
 .bp3-popover-content div[style="padding: 8px; border-left: 1px solid red;"] {

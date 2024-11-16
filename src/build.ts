@@ -13,104 +13,62 @@ function changeSettings(setting: string) {
   console.log("Changing setting: " + setting);
 
   switch (setting) {
-    case "css-theme":
-    case "css-appearance":
-      setToggleIcon();
   }
 }
 
-function toggleDarkMode() {
-  console.log("Dark mode toggled: " + settings["css-appearance"]);
+function setAppearance(mode: string) {
+  console.log("Set Appearance: " + mode);
 
-  if (settings["css-appearance"] == "Auto") {
-    let btn = document.getElementsByClassName(
-      "bp3-icon-clean blueprint-dm-toggle"
-    )[0];
-
-    btn.classList.remove("bp3-icon-clean");
-    btn.classList.add("bp3-icon-flash");
-    settings["css-appearance"] = "Light";
-    extAPI.settings.set("css-appearance", "Light");
-
-    if (document.documentElement.classList.contains('bp3-dark')) {
-      document.documentElement.classList.remove('bp3-dark');
-    }
-
-    document.documentElement.classList.add('bp3-light');
-
-    changeSettings("css-theme");
-  } else if (settings["css-appearance"] == "Light") {
-    let btn = document.getElementsByClassName(
-      "bp3-icon-flash blueprint-dm-toggle"
-    )[0];
-
-    btn.classList.remove("bp3-icon-flash");
-    btn.classList.add("bp3-icon-moon");
-    settings["css-appearance"] = "Dark";
-    extAPI.settings.set("css-appearance", "Dark");
-
-    if (document.documentElement.classList.contains('bp3-light')) {
-      document.documentElement.classList.remove('bp3-light');
-    }
-
-    document.documentElement.classList.add('bp3-dark');
-    changeSettings("css-theme");
-  } else {
-    let btn = document.getElementsByClassName(
-      "bp3-icon-moon blueprint-dm-toggle"
-    )[0];
-
-    btn.classList.remove("bp3-icon-moon");
-    btn.classList.add("bp3-icon-clean");
-    settings["css-appearance"] = "Auto";
-    extAPI.settings.set("css-appearance", "Auto");
-
-    if (document.documentElement.classList.contains('bp3-dark')) {
-      document.documentElement.classList.remove('bp3-dark');
-    }
-
-    if (document.documentElement.classList.contains('bp3-light')) {
-      document.documentElement.classList.remove('bp3-light');
-    }
-
-    changeSettings("css-theme");
-  }
-}
-
-function setToggleIcon() {
-  console.log("Set toggle icon: " + settings["css-appearance"]);
+  settings["css-appearance"] = mode;
+  extAPI.settings.set("css-appearance", mode);
 
   let btn = document.getElementsByClassName(
-    "bp3-button blueprint-dm-toggle"
+      "blueprint-toggle-icon"
   )[0];
 
-  if (btn.classList.contains("bp3-icon-clean")) {
-    btn.classList.remove("bp3-icon-clean");
-  }
-  if (btn.classList.contains("bp3-icon-flash")) {
+  if (mode == "Auto") {
+    if (document.documentElement.classList.contains('bp3-light')) {
+      document.documentElement.classList.remove('bp3-light');
+    }
     btn.classList.remove("bp3-icon-flash");
-  }
-  if (btn.classList.contains("bp3-icon-moon")) {
-    btn.classList.remove("bp3-icon-moon");
-  }
-
-  if (settings["css-appearance"] == "Auto") {
     btn.classList.add("bp3-icon-clean");
-  } else if (settings["css-appearance"] == "Light") {
-    btn.classList.add("bp3-icon-flash");
-  } else {
+  }
+  else if (mode == "Dark") {
+    btn.classList.remove("bp3-icon-flash");
     btn.classList.add("bp3-icon-moon");
+    document.documentElement.classList.add('bp3-dark');
+  }
+  else {
+    btn.classList.remove("bp3-icon-moon");
+    btn.classList.add("bp3-icon-flash");
+    if (document.documentElement.classList.contains('bp3-dark')) {
+      document.documentElement.classList.remove('bp3-dark');
+    }
+    document.documentElement.classList.add('bp3-light');
+  }
+}
+
+function toggleAppearance() {
+  let mode = settings["css-appearance"];
+
+  if (mode == "Auto") {
+    setAppearance("Dark");
+  }
+  else if (mode == "Dark") {
+    setAppearance("Light");
+  }
+  else {
+    setAppearance("Auto");
   }
 }
 
 function createToggle() {
   const createIconButton = (icon: string) => {
     const popoverButton = document.createElement("span");
-    popoverButton.className = "";
-    popoverButton.tabIndex = 0;
+    popoverButton.className = "bp3-popover-wrapper";
 
     const popoverIcon = document.createElement("span");
-    popoverIcon.className = `bp3-button bp3-minimal bp3-small bp3-icon-${icon} blueprint-dm-toggle`;
+    popoverIcon.className = `bp3-button bp3-minimal bp3-small bp3-icon-${icon} blueprint-dm-toggle blueprint-toggle-icon`;
 
     popoverButton.appendChild(popoverIcon);
 
@@ -151,8 +109,10 @@ function createToggle() {
     nextIconButton.insertAdjacentElement("afterend", mainButton);
     mainButton.insertAdjacentElement("beforebegin", flexDiv);
     mainButton.insertAdjacentElement("afterend", flexDivAfter);
-    mainButton.addEventListener("click", toggleDarkMode);
+    mainButton.addEventListener("click", toggleAppearance);
   }
+
+  setAppearance(settings["css-appearance"]);
 }
 
 function destroyToggle() {
@@ -192,14 +152,12 @@ function onload({ extensionAPI }: OnloadArgs) {
 
   loadSystem();
 
-  createToggle();
-
   for (const item in settings) {
     settings[item] = setSettingDefault(extensionAPI, item, settings[item]);
     console.log("Setting: " + item);
   }
 
-  setToggleIcon();
+  createToggle();
 
   console.log("Finished loading modules");
   console.log("Loaded Blueprint");
