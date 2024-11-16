@@ -7401,35 +7401,35 @@ div.hoverparent[style*="width: 580px;"] div.react-resizable {
 }
 .block-highlight-blue .rm-bullet__inner {
   background-color: #182026;
-  border-top: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-left: 4px solid transparent;
+  border-top: 4px solid rgb(245, 248, 250);
+  border-right: 4px solid rgb(245, 248, 250);
+  border-bottom: 4px solid rgb(245, 248, 250);
+  border-left: 4px solid rgb(245, 248, 250);
 }
 
 .bp3-light .block-highlight-blue .rm-bullet__inner {
   background-color: #182026;
-  border-top: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-left: 4px solid transparent;
+  border-top: 4px solid rgb(245, 248, 250);
+  border-right: 4px solid rgb(245, 248, 250);
+  border-bottom: 4px solid rgb(245, 248, 250);
+  border-left: 4px solid rgb(245, 248, 250);
 }
 
 .bp3-dark .block-highlight-blue .rm-bullet__inner {
   background-color: #ffffff;
-  border-top: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-left: 4px solid transparent;
+  border-top: 4px solid #202b33;
+  border-right: 4px solid #202b33;
+  border-bottom: 4px solid #202b33;
+  border-left: 4px solid #202b33;
 }
 
 @media (prefers-color-scheme: dark) {
   .block-highlight-blue .rm-bullet__inner {
     background-color: #ffffff;
-    border-top: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-    border-left: 4px solid transparent;
+    border-top: 4px solid #202b33;
+    border-right: 4px solid #202b33;
+    border-bottom: 4px solid #202b33;
+    border-left: 4px solid #202b33;
   }
 }
 .block-highlight-blue .rm-multibar {
