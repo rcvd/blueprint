@@ -9795,6 +9795,68 @@ input {
     color: rgb(245, 248, 250);
   }
 }
+pre code {
+  box-shadow: none;
+}
+
+.bp3-light pre code {
+  box-shadow: none;
+}
+
+.bp3-dark pre code {
+  box-shadow: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  pre code {
+    box-shadow: none;
+  }
+}
+pre {
+  background-color: hsla(0, 0%, 100%, 0.7);
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgba(16, 22, 26, 0.15);
+  color: #182026;
+  font-size: 0.9rem;
+}
+
+.bp3-light pre {
+  background-color: hsla(0, 0%, 100%, 0.7);
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px rgba(16, 22, 26, 0.15);
+  color: #182026;
+  font-size: 0.9rem;
+}
+
+.bp3-dark pre {
+  background-color: rgba(16, 22, 26, 0.3);
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+  box-shadow: inset 0 0 0 1px rgba(16, 22, 26, 0.4);
+  color: rgb(245, 248, 250);
+}
+
+@media (prefers-color-scheme: dark) {
+  pre {
+    background-color: rgba(16, 22, 26, 0.3);
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
+    box-shadow: inset 0 0 0 1px rgba(16, 22, 26, 0.4);
+    color: rgb(245, 248, 250);
+  }
+}
 ::selection {
   background-color: rgba(125, 188, 255, 0.6);
 }
