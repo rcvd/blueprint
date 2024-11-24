@@ -270,9 +270,9 @@ table.bp3-html-table tfoot tr:first-child td {
   html:not(.bp3-light) .rm-diagram .react-flow__edge {
     filter: invert(1) hue-rotate(-180deg);
   }
-  .rm-diagram .react-flow__node > .rm-parsed-block-string > span > *:not(.rm-bold),
-  .rm-diagram .react-flow__node > .rm-parsed-block-string > span > span > span > .rm-block-ref > *,
-  .rm-diagram .react-flow__node > .rm-parsed-block-string > span > span > span > .rm-block-ref [class^=rm]:not(.rm-bold):not(.rm-italics):not(img):not(.rm-strikethrough) {
+  html:not(.bp3-light) .rm-diagram .react-flow__node > .rm-parsed-block-string > span > *:not(.rm-bold),
+  html:not(.bp3-light) .rm-diagram .react-flow__node > .rm-parsed-block-string > span > span > span > .rm-block-ref > *,
+  html:not(.bp3-light) .rm-diagram .react-flow__node > .rm-parsed-block-string > span > span > span > .rm-block-ref [class^=rm]:not(.rm-bold):not(.rm-italics):not(img):not(.rm-strikethrough) {
     filter: invert(1) hue-rotate(180deg);
   }
   /* Invert colors in colorpicker */
@@ -304,7 +304,8 @@ table.bp3-html-table tfoot tr:first-child td {
   filter: invert(1) hue-rotate(-180deg);
 }
 .bp3-dark .rm-diagram .react-flow__node > .rm-parsed-block-string > span > *:not(.rm-bold),
-.bp3-dark .rm-diagram .react-flow__node > .rm-parsed-block-string .rm-block-ref > *:not(.rm-page-ref__brackets):not(.rm-page-ref) {
+.bp3-dark .rm-diagram .react-flow__node > .rm-parsed-block-string > span > span > span > .rm-block-ref > *,
+.bp3-dark .rm-diagram .react-flow__node > .rm-parsed-block-string > span > span > span > .rm-block-ref [class^=rm]:not(.rm-bold):not(.rm-italics):not(img):not(.rm-strikethrough) {
   filter: invert(1) hue-rotate(180deg);
 }
 .bp3-dark .rm-diagram .rm-diagram-properties-panel__color-picker .bp3-popover-wrapper,
