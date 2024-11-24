@@ -1770,7 +1770,8 @@ div:has(> .rm-pomodoro) {
   text-decoration: line-through;
 }
 */
-.roam-block > span:has(label.check-container > input:checked) {
+.rm-block-ref > span:has(> .rm-checkbox > label.check-container > input:checked),
+.roam-block > span:has(> .rm-checkbox > label.check-container > input:checked) {
   color: #8a9ba8 !important;
   text-decoration: line-through;
 }
@@ -2079,20 +2080,20 @@ div.hoverparent[style*="width: 580px;"] div.react-resizable {
   }
 }
 .delete-all-dialog-list {
-  background-color: none;
+  background-color: transparent;
 }
 
 .bp3-light .delete-all-dialog-list {
-  background-color: none;
+  background-color: transparent;
 }
 
 .bp3-dark .delete-all-dialog-list {
-  background-color: none;
+  background-color: transparent;
 }
 
 @media (prefers-color-scheme: dark) {
   .delete-all-dialog-list {
-    background-color: none;
+    background-color: transparent;
   }
 }
 .delete-all-dialog-items {
@@ -6986,7 +6987,7 @@ div.hoverparent[style*="width: 580px;"] div.react-resizable {
   border-left: none;
   box-shadow: inset 0 0 0 1px rgba(16, 22, 26, 0.2), inset 0 -1px 0 rgba(16, 22, 26, 0.1);
   color: #182026;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .bp3-light .rm-code-block .cm-button {
@@ -6998,7 +6999,7 @@ div.hoverparent[style*="width: 580px;"] div.react-resizable {
   border-left: none;
   box-shadow: inset 0 0 0 1px rgba(16, 22, 26, 0.2), inset 0 -1px 0 rgba(16, 22, 26, 0.1);
   color: #182026;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .bp3-dark .rm-code-block .cm-button {
