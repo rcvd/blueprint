@@ -611,6 +611,7 @@ textarea {
   line-height: 23px;
   margin: unset;
   padding: unset;
+  letter-spacing: 0.002em;
 }
 
 /* Fix the focus outline setting for Safari */
