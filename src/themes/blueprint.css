@@ -314,6 +314,10 @@ table.bp3-html-table tfoot tr:first-child td {
   filter: invert(1) hue-rotate(-180deg);
 }
 
+.rm-diagram .rm-embed-container {
+  margin-left: 0;
+}
+
 /* Remove font size for embedded page title */
 .rm-embed--page .rm-page__title {
   font-size: unset;
@@ -594,11 +598,6 @@ em-emoji-picker {
 }
 
 /* reset all custom styling to defaults */
-body,
-html {
-  letter-spacing: 0;
-}
-
 div {
   font-size: unset;
   line-height: 23px;
@@ -15555,5 +15554,3 @@ code {
     color: transparent;
   }
 }
-
-/*# sourceMappingURL=blueprint.css.map */
