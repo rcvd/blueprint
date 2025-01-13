@@ -1708,11 +1708,11 @@ div:has(> .rm-pomodoro) {
 }
 
 .roam-block:has(span > span > sub) > span > span button::before {
-  content: "Show Tweet";
+  content: "Show Post";
 }
 
 .roam-block:has(span > span > div > div.twitter-tweet) > span > span > button::before {
-  content: "Hide Tweet";
+  content: "Hide Post";
 }
 
 .roam-block:has(span > span > sub) > span > span > sub {
