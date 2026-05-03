@@ -282,10 +282,6 @@ table.bp3-html-table tfoot tr:first-child td {
     filter: invert(1) hue-rotate(-180deg);
   }
 }
-.bp3-dark {
-  /* Invert diagram colors in dark mode */
-  /* Invert colors in colorpicker */
-}
 .bp3-dark .rm-diagram {
   background-color: #202b33 !important;
   --group-area-fill-color: rgba(#e1e8ed, 0.2);
@@ -298,6 +294,9 @@ table.bp3-html-table tfoot tr:first-child td {
   --group-title-font-size: 18px;
   --global-edge-stroke-color: #10161a;
 }
+.bp3-dark {
+  /* Invert diagram colors in dark mode */
+}
 .bp3-dark .rm-diagram-minimap,
 .bp3-dark .rm-diagram .react-flow__node,
 .bp3-dark .rm-diagram .react-flow__edge {
@@ -307,6 +306,9 @@ table.bp3-html-table tfoot tr:first-child td {
 .bp3-dark .rm-diagram .react-flow__node > .rm-parsed-block-string > span > span > span > .rm-block-ref > *,
 .bp3-dark .rm-diagram .react-flow__node > .rm-parsed-block-string > span > span > span > .rm-block-ref [class^=rm]:not(.rm-bold):not(.rm-italics):not(img):not(.rm-strikethrough) {
   filter: invert(1) hue-rotate(180deg);
+}
+.bp3-dark {
+  /* Invert colors in colorpicker */
 }
 .bp3-dark .rm-diagram .rm-diagram-properties-panel__color-picker .bp3-popover-wrapper,
 .bp3-dark .codemirror-colorpicker,

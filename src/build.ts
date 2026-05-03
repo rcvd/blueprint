@@ -8,8 +8,9 @@ let css: { [key: string]: string } = {
 function loadSystem() {
   console.log("Loading Blueprint");
 
-  if (document.getElementById("blueprint-css")) {
-    document.getElementById("blueprint-css").remove();
+  const blueprintCss = document.getElementById("blueprint-css");
+  if (blueprintCss) {
+    blueprintCss.remove();
   }
 
   const head = document.getElementsByTagName("head")[0];
@@ -44,9 +45,10 @@ function onload({ extensionAPI }: OnloadArgs) {
 function onunload() {
   console.log("Unloading Blueprint");
 
-  if (document.getElementById("blueprint-css")) {
+  const blueprintCss = document.getElementById("blueprint-css");
+  if (blueprintCss) {
     console.log("Removing Blueprint");
-    document.getElementById("blueprint-css").remove();
+    blueprintCss.remove();
   }
 
   destroyToggle();

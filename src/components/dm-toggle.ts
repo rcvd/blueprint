@@ -5,7 +5,9 @@ let extAPI: any;
 export function setAppearance(mode: string) {
   console.log("Set Appearance: " + mode);
 
-  let btn = document.getElementsByClassName("blueprint-toggle-icon")[0];
+  let btn = document.getElementsByClassName("blueprint-toggle-icon")[0] as HTMLElement;
+
+  if (!btn) return;
 
   if (mode == "Auto") {
     if (document.documentElement.classList.contains("bp3-light")) {
@@ -80,20 +82,22 @@ export function createToggle(extensionAPI: any) {
   if (!checkForButton) {
     const mainButton = createIconButton(iconName);
     const roamTopbar = document.getElementsByClassName("rm-topbar");
+    const nextIconButton = roamTopbar[0]?.lastElementChild;
 
-    const nextIconButton = roamTopbar[0].lastElementChild;
-    const flexDiv = document.createElement("div");
-    flexDiv.className = "rm-topbar__spacer-sm blueprint-dm-toggle";
-    flexDiv.id = nameToUse + "-flex-space";
+    if (nextIconButton) {
+      const flexDiv = document.createElement("div");
+      flexDiv.className = "rm-topbar__spacer-sm blueprint-dm-toggle";
+      flexDiv.id = nameToUse + "-flex-space";
 
-    const flexDivAfter = document.createElement("div");
-    flexDivAfter.className = "rm-topbar__spacer-sm blueprint-dm-toggle";
-    flexDivAfter.id = nameToUse + "-flex-space-after";
+      const flexDivAfter = document.createElement("div");
+      flexDivAfter.className = "rm-topbar__spacer-sm blueprint-dm-toggle";
+      flexDivAfter.id = nameToUse + "-flex-space-after";
 
-    nextIconButton.insertAdjacentElement("afterend", mainButton);
-    mainButton.insertAdjacentElement("beforebegin", flexDiv);
-    mainButton.insertAdjacentElement("afterend", flexDivAfter);
-    mainButton.addEventListener("click", toggleAppearance);
+      nextIconButton.insertAdjacentElement("afterend", mainButton);
+      mainButton.insertAdjacentElement("beforebegin", flexDiv);
+      mainButton.insertAdjacentElement("afterend", flexDivAfter);
+      mainButton.addEventListener("click", toggleAppearance);
+    }
   }
 
   setAppearance(mode);
