@@ -2,11 +2,11 @@ import type { OnloadArgs } from "roamjs-components/types";
 import { createToggle, destroyToggle } from "./components/dm-toggle";
 
 let css: { [key: string]: string } = {
-    blueprint: ""
-}
+  blueprint: "",
+};
 
 function loadSystem() {
-  console.log("Loading Blueprint");
+  console.log("Loading Roam Studio II");
 
   const blueprintCss = document.getElementById("blueprint-css");
   if (blueprintCss) {
@@ -20,7 +20,11 @@ function loadSystem() {
   head.appendChild(style);
 }
 
-function setSettingDefault(extensionAPI: any, settingId: any, settingDefault: any) {
+function setSettingDefault(
+  extensionAPI: any,
+  settingId: any,
+  settingDefault: any,
+) {
   let storedSetting = extensionAPI.settings.get(settingId);
   if (null == storedSetting)
     extensionAPI.settings.set(settingId, settingDefault);
@@ -28,22 +32,21 @@ function setSettingDefault(extensionAPI: any, settingId: any, settingDefault: an
 }
 
 function onload({ extensionAPI }: OnloadArgs) {
-
   console.log("Initializing CSS Themes");
 
   initCSSTheme();
   loadSystem();
 
-  setSettingDefault(extensionAPI, "bp-appearance", "auto");
+  setSettingDefault(extensionAPI, "rs2-appearance", "auto");
 
   createToggle(extensionAPI);
 
   console.log("Finished loading modules");
-  console.log("Loaded Blueprint");
+  console.log("Loaded Roam Studio II");
 }
 
 function onunload() {
-  console.log("Unloading Blueprint");
+  console.log("Unloading Roam Studio II");
 
   const blueprintCss = document.getElementById("blueprint-css");
   if (blueprintCss) {
@@ -60,4 +63,3 @@ export default {
   onload: onload,
   onunload: onunload,
 };
-
