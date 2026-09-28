@@ -1,4 +1,6 @@
+cd .. && npm install
+npx gulp css
+cd plugin
 npm install
-gulp css
 npm run add_css
 npm run build

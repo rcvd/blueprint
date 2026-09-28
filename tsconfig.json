@@ -1,4 +1,8 @@
 {
-  "include": ["src/index.ts"],
-  "exclude": ["node_modules", "src/RoamStudio"]
+  "include": ["src/index.ts", "src/components/*.ts"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "strict": true,
+    "skipLibCheck": true
+  }
 }

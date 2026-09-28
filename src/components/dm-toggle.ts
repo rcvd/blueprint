@@ -1,84 +1,101 @@
-import type { OnloadArgs } from "roamjs-components/types";
+/**
+ * Dark/light mode toggle for the Blueprint theme.
+ *
+ * Mounts a button in the Roam top bar that cycles through
+ * Auto → Dark → Light appearance modes. Reads and writes
+ * the `bp-appearance` setting via the Roam extension API.
+ */
+import {
+  SETTING_APPEARANCE,
+  TOGGLE_ID_PREFIX,
+  CSS_CLASS_TOGGLE,
+  CSS_CLASS_ICON,
+  APPEARANCE_AUTO,
+  APPEARANCE_DARK,
+  APPEARANCE_LIGHT,
+  ICON_CLEAN,
+  ICON_MOON,
+  ICON_FLASH,
+} from "../constants";
+import type { ExtensionAPI } from "../types";
 
-let extAPI: any;
+function createIconButton(icon: string) {
+  const popoverButton = document.createElement("span");
+  popoverButton.className = "bp3-popover-wrapper";
 
+  const popoverIcon = document.createElement("span");
+  popoverIcon.className = `bp3-button bp3-minimal bp3-small bp3-icon-${icon} ${CSS_CLASS_TOGGLE} ${CSS_CLASS_ICON}`;
+
+  popoverButton.appendChild(popoverIcon);
+
+  return popoverButton;
+}
+
+/**
+ * Applies the given appearance mode to the DOM.
+ * Removes any prior theme classes and sets the new mode's class
+ * and toggle button icon.
+ */
 export function setAppearance(mode: string) {
-  console.log("Set Appearance: " + mode);
+  const docEl = document.documentElement;
+  docEl.classList.remove("bp3-dark", "bp3-light");
 
-  let btn = document.getElementsByClassName("blueprint-toggle-icon")[0] as HTMLElement;
-
+  const btn = document.querySelector(`.${CSS_CLASS_ICON}`);
   if (!btn) return;
 
-  if (mode == "Auto") {
-    if (document.documentElement.classList.contains("bp3-light")) {
-      document.documentElement.classList.remove("bp3-light");
-    }
-    btn.classList.remove("bp3-icon-flash");
+  btn.classList.remove("bp3-icon-clean", "bp3-icon-moon", "bp3-icon-flash");
+
+  if (mode === APPEARANCE_AUTO) {
     btn.classList.add("bp3-icon-clean");
-  } else if (mode == "Dark") {
-    btn.classList.remove("bp3-icon-flash");
+  } else if (mode === APPEARANCE_DARK) {
     btn.classList.add("bp3-icon-moon");
-    document.documentElement.classList.add("bp3-dark");
+    docEl.classList.add("bp3-dark");
   } else {
-    btn.classList.remove("bp3-icon-moon");
     btn.classList.add("bp3-icon-flash");
-    if (document.documentElement.classList.contains("bp3-dark")) {
-      document.documentElement.classList.remove("bp3-dark");
-    }
-    document.documentElement.classList.add("bp3-light");
+    docEl.classList.add("bp3-light");
   }
 }
 
-export function toggleAppearance() {
-  let mode = extAPI.settings.get("bp-appearance") as string;
+/**
+ * Cycles the appearance mode: Auto → Dark → Light → Auto.
+ * Persists the new mode and applies it to the DOM.
+ */
+export function toggleAppearance(extensionAPI: ExtensionAPI) {
+  let mode = extensionAPI.settings.get(SETTING_APPEARANCE) ?? APPEARANCE_AUTO;
 
-  if (mode == "Auto") {
-    mode = "Dark";
-  } else if (mode == "Dark") {
-    mode = "Light";
+  if (mode === APPEARANCE_AUTO) {
+    mode = APPEARANCE_DARK;
+  } else if (mode === APPEARANCE_DARK) {
+    mode = APPEARANCE_LIGHT;
   } else {
-    mode = "Auto";
+    mode = APPEARANCE_AUTO;
   }
 
-  extAPI.settings.set("bp-appearance", mode);
+  extensionAPI.settings.set(SETTING_APPEARANCE, mode);
   setAppearance(mode);
 }
 
-export function createToggle(extensionAPI: any) {
-  const createIconButton = (icon: string) => {
-    const popoverButton = document.createElement("span");
-    popoverButton.className = "bp3-popover-wrapper";
-
-    const popoverIcon = document.createElement("span");
-    popoverIcon.className = `bp3-button bp3-minimal bp3-small bp3-icon-${icon} blueprint-dm-toggle blueprint-toggle-icon`;
-
-    popoverButton.appendChild(popoverIcon);
-
-    return popoverButton;
-  };
-
-  let iconName = "moon";
-  let mode = extensionAPI.settings.get("bp-appearance") as string;
-
-  extAPI = extensionAPI;
-
-  const nameToUse = "blueprintToggleDarkMode";
-
+/** Returns the BlueprintJS icon name for a given appearance mode. */
+function iconForMode(mode: string): string {
   switch (mode) {
-    case "Auto":
-      iconName = "clean";
-      break;
-    case "Dark":
-      iconName = "moon";
-      break;
-    case "Light":
-      iconName = "flash";
-      break;
+    case APPEARANCE_AUTO:  return ICON_CLEAN;
+    case APPEARANCE_DARK:  return ICON_MOON;
+    case APPEARANCE_LIGHT: return ICON_FLASH;
+    default:               return ICON_MOON;
   }
+}
 
-  console.log("iconName: " + iconName);
+/**
+ * Creates the dark/light mode toggle button and inserts it
+ * into the Roam top bar. Only creates the button once —
+ * subsequent calls are no-ops if the button already exists.
+ */
+export function createToggle(extensionAPI: ExtensionAPI) {
+  const mode = extensionAPI.settings.get(SETTING_APPEARANCE) ?? APPEARANCE_AUTO;
+  const iconName = iconForMode(mode);
 
-  const checkForButton = document.getElementById(`${nameToUse}-flex-space`);
+  const flexSpaceId = `${TOGGLE_ID_PREFIX}-flex-space`;
+  const checkForButton = document.getElementById(flexSpaceId);
   if (!checkForButton) {
     const mainButton = createIconButton(iconName);
     const roamTopbar = document.getElementsByClassName("rm-topbar");
@@ -86,27 +103,27 @@ export function createToggle(extensionAPI: any) {
 
     if (nextIconButton) {
       const flexDiv = document.createElement("div");
-      flexDiv.className = "rm-topbar__spacer-sm blueprint-dm-toggle";
-      flexDiv.id = nameToUse + "-flex-space";
+      flexDiv.className = `rm-topbar__spacer-sm ${CSS_CLASS_TOGGLE}`;
+      flexDiv.id = flexSpaceId;
 
       const flexDivAfter = document.createElement("div");
-      flexDivAfter.className = "rm-topbar__spacer-sm blueprint-dm-toggle";
-      flexDivAfter.id = nameToUse + "-flex-space-after";
+      flexDivAfter.className = `rm-topbar__spacer-sm ${CSS_CLASS_TOGGLE}`;
+      flexDivAfter.id = `${TOGGLE_ID_PREFIX}-flex-space-after`;
 
       nextIconButton.insertAdjacentElement("afterend", mainButton);
       mainButton.insertAdjacentElement("beforebegin", flexDiv);
       mainButton.insertAdjacentElement("afterend", flexDivAfter);
-      mainButton.addEventListener("click", toggleAppearance);
+      mainButton.addEventListener("click", () => toggleAppearance(extensionAPI));
     }
-  }
 
-  setAppearance(mode);
+    setAppearance(mode);
+  }
 }
 
+/**
+ * Removes all dark/light mode toggle elements from the DOM.
+ * Safe to call even if the toggle has already been removed.
+ */
 export function destroyToggle() {
-  const toggles = document.querySelectorAll(".blueprint-dm-toggle");
-
-  toggles.forEach((tog) => {
-    tog.remove();
-  });
+  document.querySelectorAll(`.${CSS_CLASS_TOGGLE}`).forEach((tog) => tog.remove());
 }

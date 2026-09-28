@@ -14,12 +14,12 @@
     "@types/react-color": "^3.0.13",
     "react-color": "^2.19.3",
     "roamjs-scripts": "^0.27.1",
-    "ts-loader": "^9.5.7",
+    "ts-loader": "^9.6.2",
     "typescript": "^6.0.3",
-    "webpack": "^5.106.2",
-    "webpack-cli": "^7.0.2"
+    "webpack": "^5.111.1",
+    "webpack-cli": "^7.2.3"
   },
   "dependencies": {
-    "roamjs-components": "^0.87.0"
+    "roamjs-components": "^0.90.0"
   }
 }

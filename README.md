@@ -12,9 +12,16 @@ blueprint is work in progress, while it already reached a high level of maturity
 
 ## Installation
 
-- Disable all other themes including Roam Studio
+- Disable all other themes
 - Enable blueprint
-- No further customisation or settings are needed
+- A dark mode toggle button (☀/🌙) appears in the top bar — click to cycle between Auto, Dark, and Light modes
+
+## Usage
+
+The theme respects your system preference by default. Use the top-bar toggle button to manually switch between:
+- **Auto** (follows system preference)
+- **Dark** (force dark theme)
+- **Light** (force light theme)
  
 ## Enhancements
 
