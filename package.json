@@ -20,6 +20,7 @@
     "webpack-cli": "^7.2.3"
   },
   "dependencies": {
+    "gulp": "^5.0.1",
     "roamjs-components": "^0.90.0"
   }
 }
